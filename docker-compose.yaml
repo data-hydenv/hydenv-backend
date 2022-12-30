@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgis/postgis
+    ports:
+      - "5432:5432"
+    volumes:
+      - .:/var/lib/postgresql/data
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    env_file:
+      - postgis.env
+    restart: always
+  
+  hydenv:
+    image: ghcr.io/data-hydenv/hydenv
+    env_file:
+      - hydenv.env
+    depends_on:
+      - postgres
