@@ -8,13 +8,14 @@ services:
     volumes:
       - .:/var/lib/postgresql/data
     environment:
+      - DOCKER_DEFAULT_PLATFORM=linux/amd64
       - PGDATA=/var/lib/postgresql/data/pgdata
     env_file:
       - postgis.env
     restart: always
   
   hydenv:
-    image: ghcr.io/data-hydenv/hydenv
+    image: ghcr.io/data-hydenv/hydenv:v0.10.2
     env_file:
       - hydenv.env
     depends_on:
