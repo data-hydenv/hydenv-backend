@@ -15,7 +15,7 @@ services:
     restart: always
   
   hydenv:
-    image: ghcr.io/data-hydenv/hydenv:v0.12.0
+    image: ghcr.io/data-hydenv/hydenv:v0.12.1
     env_file:
       - hydenv.env
     depends_on:
